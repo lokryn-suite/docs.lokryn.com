@@ -17,8 +17,8 @@ They are declared in `profiles.toml` at the project root, and referenced by name
 provider   = "s3"  
 endpoint   = "http://developyr.local:9000"  
 region     = "us-east-1"  
-access_key = "${MINIO_ACCESS_KEY}"  
-secret_key = "${MINIO_SECRET_KEY}"  
+access_key = "$ \{ MINIO_ACCESS_KEY \}"  
+secret_key = "$ \{ MINIO_SECRET_KEY \}"  
 path_style = true  
 use_ssl    = false  
 
@@ -35,7 +35,7 @@ use_ssl    = false
 
 [azure_test]  
 provider = "azure"  
-connection_string = "${AZURE_STORAGE_CONNECTION_STRING}"  
+connection_string = "$ \{ AZURE_STORAGE_CONNECTION_STRING \}"  
 
 **Notes**  
 - `connection_string` is pulled from the environment.  
@@ -47,7 +47,7 @@ connection_string = "${AZURE_STORAGE_CONNECTION_STRING}"
 
 [gcs_test]  
 provider = "gcs"  
-service_account_json = "${GCP_SERVICE_ACCOUNT_KEY}"  
+service_account_json = "$ \{ GCP_SERVICE_ACCOUNT_KEY \}"  
 
 **Notes**  
 - `service_account_json` should point to a service account key file, or inline JSON.  
@@ -57,7 +57,7 @@ service_account_json = "${GCP_SERVICE_ACCOUNT_KEY}"
 
 ## Best Practices
 
-- Always reference secrets with `${VAR_NAME}` so they can be injected from `.env`.  
+- Always reference secrets with `$ \{VAR_NAME \}` so they can be injected from `.env`.  
 - Use `pipa profile list` to see available profiles.  
-- Use `pipa profile test <PROFILE_NAME>` to verify connectivity.  
+- Use `pipa profile test \< PROFILE_NAME \>` to verify connectivity.  
 - Contracts reference profiles by name, e.g. `profile = "minio_raw"`.  

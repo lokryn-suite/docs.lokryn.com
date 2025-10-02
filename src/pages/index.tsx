@@ -58,7 +58,7 @@ function AboutSection() {
           against explicit contracts, logged in a tamper‑evident chain, and quarantined if invalid — so your
           downstream systems only see trusted data.
         </p>
-        <Link className="button button--primary button--lg" to="/docs/intro">
+        <Link className="button button--primary button--lg" to="/docs/">
           Learn More in the Docs
         </Link>
       </div>

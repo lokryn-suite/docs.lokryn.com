@@ -12,4 +12,4 @@ Manage connection profiles defined in profiles.toml.
   pipa profile list
 
 - Test a profile connection:
-  pipa profile test /<PROFILE_NAME/>
+  pipa profile test \< PROFILE_NAME \>

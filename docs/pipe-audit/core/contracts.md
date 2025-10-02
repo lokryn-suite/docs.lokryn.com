@@ -21,22 +21,22 @@ tags = ["pii", "critical"]
 
 [file]  
 validation = [  
-  { rule = "row_count", min = 1_500_000, max = 2_000_000 }  
+  \{ rule = "row_count", min = 1_500_000, max = 2_000_000 \}  
 ]  
 
 [[columns]]  
 name = "person_id"  
 validation = [  
-  { rule = "not_null" },  
-  { rule = "unique" },  
-  { rule = "pattern", pattern = "^[0-9a-fA-F-]{36}$" }  
+  \{ rule = "not_null" \},  
+  \{ rule = "unique" \},  
+  \{ rule = "pattern", pattern = "^[0-9a-fA-F-]{36}$" \}  
 ]  
 
 [[columns]]  
 name = "age"  
 validation = [  
-  { rule = "range", min = 0, max = 120 },  
-  { rule = "outlier_sigma", sigma = 3.0 }  
+  \{ rule = "range", min = 0, max = 120 \},  
+ \{ rule = "outlier_sigma", sigma = 3.0 \}  
 ]  
 
 [[compound_unique]]  
