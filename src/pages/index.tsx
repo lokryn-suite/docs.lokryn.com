@@ -17,10 +17,10 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/pipe-audit/cli/quickstart">
+          <Link className="button button--secondary button--lg" to="/docs/cli/quickstart">
             Get Started with CLI
           </Link>
-          <Link className="button button--secondary button--lg" to="/docs/pipe-audit/core/quickstart">
+          <Link className="button button--secondary button--lg" to="/docs/core/quickstart">
             Get Started with Core
           </Link>
         </div>
@@ -58,7 +58,7 @@ function AboutSection() {
           against explicit contracts, logged in a tamper‑evident chain, and quarantined if invalid — so your
           downstream systems only see trusted data.
         </p>
-        <Link className="button button--primary button--lg" to="/docs/">
+        <Link className="button button--primary button--lg" to="/docs/pipe-audit">
           Learn More in the Docs
         </Link>
       </div>

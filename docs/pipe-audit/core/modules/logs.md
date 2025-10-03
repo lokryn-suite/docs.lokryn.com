@@ -1,7 +1,8 @@
 ---
-id: logs
+id: core-module-logs
 title: Logs
 sidebar_position: 4
+slug: /core/modules/logs
 ---
 
 # Logs Module

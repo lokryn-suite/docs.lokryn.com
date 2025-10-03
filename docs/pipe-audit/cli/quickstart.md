@@ -1,7 +1,8 @@
 ---
-id: quickstart
+id: cli-quickstart
 title: Quickstart
 sidebar_position: 2
+slug: /cli/quickstart
 ---
 
 # CLI Quickstart

@@ -1,7 +1,8 @@
 ---
-id: profile
+id: cli-command-profile
 title: Profile
 sidebar_position: 4
+slug: /cli/commands/profile
 ---
 
 # `pipa profile`

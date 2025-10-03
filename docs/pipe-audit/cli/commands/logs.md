@@ -1,7 +1,8 @@
 ---
-id: logs
+id: cli-command-logs
 title: Logs
 sidebar_position: 5
+slug: /cli/commands/logs
 ---
 
 # `pipa logs`

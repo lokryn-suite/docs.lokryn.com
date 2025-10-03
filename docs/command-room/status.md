@@ -1,3 +1,0 @@
-# Status
-
-## Coming Soon

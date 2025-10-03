@@ -1,7 +1,8 @@
 ---
-id: logs-quarantine
+id: core-logs-quarantine
 title: Logs & Quarantine
 sidebar_position: 6
+slug: /core/logs-quarantine
 ---
 
 # Logs & Quarantine

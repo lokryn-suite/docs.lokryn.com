@@ -1,7 +1,8 @@
 ---
-id: contract
+id: cli-command-contract
 title: Contract
 sidebar_position: 3
+slug: /cli/commands/contract
 ---
 
 # `pipa contract`

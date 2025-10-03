@@ -1,7 +1,8 @@
 ---
-id: profile
+id: core-module-profile
 title: Profile
 sidebar_position: 2
+slug: /core/modules/profile
 ---
 
 # Profile Module

@@ -1,5 +1,5 @@
 ---
-id: overview
+id: contributing-index
 title: Contributing
 slug: /contributing
 sidebar_position: 3

@@ -1,7 +1,8 @@
 ---
-id: contract
+id: core-module-contract
 title: Contract
 sidebar_position: 1
+slug: /core/modules/contract
 ---
 
 # Contract Module

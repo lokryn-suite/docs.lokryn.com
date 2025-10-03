@@ -1,7 +1,8 @@
 ---
-id: quickstart
+id: core-quickstart
 title: Quickstart
 sidebar_position: 2
+slug: /core/quickstart
 ---
 
 

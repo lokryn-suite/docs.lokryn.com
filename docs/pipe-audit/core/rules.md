@@ -1,7 +1,8 @@
 ---
-id: rules
+id: core-rules
 title: Contract Rules
 sidebar_position: 5
+slug: /core/rules
 ---
 
 # Contract Rules
