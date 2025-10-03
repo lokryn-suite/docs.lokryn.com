@@ -31,8 +31,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/developyrs/lokryn-pipe-audit-core/tree/main/docs/',
+         // editUrl:
+           // 'https://github.com/developyrs/lokryn-pipe-audit-core/tree/main/docs/',
         },
         blog: {
           showReadingTime: true,
