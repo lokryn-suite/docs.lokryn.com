@@ -3,8 +3,8 @@ name: Deploy Docusaurus to GitHub Pages
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - main   # auto-deploy when pushing to main
+  workflow_dispatch:   # adds a "Run workflow" button in the Actions tab
 
 jobs:
   deploy:
@@ -21,7 +21,7 @@ jobs:
           node-version: 22   # match your local Node version
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build website
         run: npm run build
