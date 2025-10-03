@@ -1,7 +1,8 @@
 ---
-id: architecture
+id: contributing-architecture
 title: Architecture Overview
 sidebar_position: 1
+slug: /contributing/architecture
 ---
 
 # Architecture Overview

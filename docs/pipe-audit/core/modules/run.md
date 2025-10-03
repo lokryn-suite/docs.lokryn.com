@@ -1,7 +1,8 @@
 ---
-id: run
+id: core-module-run
 title: Run
 sidebar_position: 3
+slug: /core/modules/run
 ---
 
 # Run Module

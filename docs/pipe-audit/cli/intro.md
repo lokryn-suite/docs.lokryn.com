@@ -1,7 +1,8 @@
 ---
-id: intro
+id: cli-intro
 title: Introduction
 sidebar_position: 1
+slug: /cli/intro
 ---
 
 # Introduction to Pipe Audit CLI
@@ -19,7 +20,9 @@ It provides a user‑friendly way to scaffold projects, run validations, and ins
 
 ## Key Entry Points
 
-- **CLI definitions**: [`pipa/src/cli.rs`](pipa/src/cli.rs)  
+- **CLI definitions**:  
+  [`cli.rs`](https://github.com/lokryn-suite/pipe-audit-core/blob/main/pipa/src/cli.rs)
+
 - **Commands**:  
   - `pipa contract` → list, validate, run contracts  
   - `pipa profile` → list and test profiles  
@@ -37,4 +40,4 @@ Use the CLI when you want to:
 - Verify logs and system health without writing code
 - Share a reproducible, command‑driven workflow with your team
 
-For programmatic integration or custom extensions, see the [Core Library Introduction](../core/intro).
+For programmatic integration or custom extensions, see the [Core Library Introduction](/docs/core/intro).

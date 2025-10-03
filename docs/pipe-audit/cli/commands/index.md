@@ -1,8 +1,8 @@
 ---
-id: commands
+id: cli-commands
 title: Commands
-sidebar_position: 2
 slug: /cli/commands
+sidebar_position: 2
 ---
 
 # CLI Commands
@@ -12,20 +12,20 @@ This page serves as an overview — use the sidebar to dive into each command in
 
 ## Available Commands
 
-- [`pipa init`](./init)  
+- [`pipa init`](/docs/cli/commands/init)  
   Scaffold a new project with the standard folder structure and configuration files.
 
-- [`pipa run`](./run)  
+- [`pipa run`](/docs/cli/commands/run)  
   Execute data validation against one or more contracts.
 
-- [`pipa contract`](./contract)  
+- [`pipa contract`](/docs/cli/commands/contract)  
   Manage contracts: list, show, and validate definitions.
 
-- [`pipa profile`](./profile)  
+- [`pipa profile`](/docs/cli/commands/profile)  
   Manage connection profiles defined in `profiles.toml`.
 
-- [`pipa logs`](./logs)  
+- [`pipa logs`](/docs/cli/commands/logs)  
   Verify the integrity of tamper‑evident audit logs.
 
-- [`pipa health`](./health)  
+- [`pipa health`](/docs/cli/commands/health)  
   Run system health checks to validate environment and connectors.

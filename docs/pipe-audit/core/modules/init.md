@@ -1,7 +1,8 @@
 ---
-id: init
+id: core-module-init
 title: Init
 sidebar_position: 6
+slug: /core/modules/init
 ---
 
 # Init Module

@@ -1,7 +1,8 @@
 ---
-id: run
+id: cli-command-run
 title: Run
 sidebar_position: 2
+slug: /cli/commands/run
 ---
 
 # `pipa run`

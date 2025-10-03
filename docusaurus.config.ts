@@ -14,11 +14,11 @@ const config: Config = {
   url: 'https://docs.lokryn.com',
   baseUrl: '/',
 
-  // Update to your GitHub org/repo
-  organizationName: 'developyrs',
-  projectName: 'lokryn-pipe-audit-core',
+  organizationName: 'lokryn-suite', // GitHub org/user
+  projectName: 'docs.lokryn.com',   // Repo name
 
   onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -31,21 +31,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-         // editUrl:
-           // 'https://github.com/developyrs/lokryn-pipe-audit-core/tree/main/docs/',
+          // If you want "Edit this page" links, uncomment and update:
+          // editUrl: 'https://github.com/lokryn-suite/docs.lokryn.com/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          editUrl:
-            'https://github.com/developyrs/lokryn-pipe-audit-core/tree/main/blog/',
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        // Blog removed to avoid broken /blog links
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -72,7 +62,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/developyrs/lokryn-pipe-audit-core',
+          href: 'https://github.com/lokryn-suite/docs.lokryn.com',
           label: 'GitHub',
           position: 'right',
         },
@@ -90,8 +80,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Getting Started',
-              to: '/docs/intro',
+              label: 'Overview',
+              to: '/docs/cli/quickstart', // point to your real quickstart
             },
           ],
         },
@@ -104,16 +94,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/developyrs/lokryn-pipe-audit-core',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
+              href: 'https://github.com/lokryn-suite/docs.lokryn.com',
             },
           ],
         },

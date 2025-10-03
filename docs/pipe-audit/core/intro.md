@@ -1,7 +1,8 @@
 ---
-id: intro
+id: core-intro
 title: Introduction
 sidebar_position: 1
+slug: /core/intro
 ---
 
 # Introduction to Pipe Audit Core
@@ -17,13 +18,15 @@ While most users interact with Pipe Audit through the CLI, the same functionalit
 - Stable, branded API surface that insulates consumers from internal refactors
 
 ## Key Entry Points
-- **Contract runner**: [`engine::contracts::runner::run_contract_validation`](pipa-core/src/engine/contracts/runner.rs)  
+- **Contract runner**:  
+  `engine::contracts::runner::run_contract_validation`
+
 - **Contract metadata helpers**:  
-  - [`list_contracts`](pipa-core/src/engine/contracts/meta.rs)  
-  - [`get_contract`](pipa-core/src/engine/contracts/meta.rs)  
-  - [`validate_contract`](pipa-core/src/engine/contracts/meta.rs)
+  - [`list_contracts`](https://github.com/lokryn-suite/pipe-audit-core/blob/main/pipa-core/src/engine/contracts/meta.rs)  
+  - [`get_contract`](https://github.com/lokryn-suite/pipe-audit-core/blob/main/pipa-core/src/engine/contracts/meta.rs)  
+  - [`validate_contract`](https://github.com/lokryn-suite/pipe-audit-core/blob/main/pipa-core/src/engine/contracts/meta.rs)
 
 ## Internal vs Public Modules
 
-- **Internal modules** (engine, connectors, movement, validators, etc.) are private and may evolve without breaking consumers.  
+- **Internal modules** (`engine`, `connectors`, `movement`, `validators`, etc.) are private and may evolve without breaking consumers.  
 - **Public modules** (`contract`, `profile`, `run`, `logs`, `health`, `init`) re‑export curated APIs for stable use.

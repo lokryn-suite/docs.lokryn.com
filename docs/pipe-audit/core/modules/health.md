@@ -1,7 +1,8 @@
 ---
-id: health
+id: core-module-health
 title: Health
 sidebar_position: 5
+slug: /core/modules/health
 ---
 
 # Health Module

@@ -1,7 +1,8 @@
 ---
-id: contracts
+id: core-contracts
 title: Contracts
 sidebar_position: 4
+slug: /core/contracts
 ---
 
 # Contracts

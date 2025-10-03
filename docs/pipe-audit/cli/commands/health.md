@@ -1,7 +1,8 @@
 ---
-id: health
+id: cli-command-health
 title: Health
 sidebar_position: 6
+slug: /cli/commands/health
 ---
 
 # `pipa health`

@@ -1,7 +1,8 @@
 ---
-id: profiles
+id: core-profiles
 title: Profiles
 sidebar_position: 3
+slug: /core/profiles
 ---
 
 # Profiles
