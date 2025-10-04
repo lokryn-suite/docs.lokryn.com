@@ -15,8 +15,6 @@ pipa init
 Scaffolded structure:
 
 - contracts/ – contract definitions
-- data/ – input/output data files
 - logs/ – audit logs
-- quarantine/ – quarantined files
 - profiles.toml – connection profiles
 - .env – environment variables

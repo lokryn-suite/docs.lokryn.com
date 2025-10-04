@@ -17,9 +17,7 @@ pipa init
 This scaffolds:
 
 - contracts/ – contract definitions
-- data/ – input/output files
 - logs/ – audit logs
-- quarantine/ – quarantined files
 - profiles.toml – connection profiles
 - .env – environment variables
 
