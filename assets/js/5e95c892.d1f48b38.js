@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdocs_lokryn_com=globalThis.webpackChunkdocs_lokryn_com||[]).push([[9647],{7121:(s,e,r)=>{r.r(e),r.d(e,{default:()=>d});r(6540);var c=r(4164),o=r(7559),a=r(5500),l=r(2831),n=r(7785),u=r(4848);function d(s){return(0,u.jsx)(a.e3,{className:(0,c.A)(o.G.wrapper.docsPages),children:(0,u.jsx)(n.A,{children:(0,l.v)(s.route.routes)})})}}}]);
