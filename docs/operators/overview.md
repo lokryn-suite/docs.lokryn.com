@@ -1,7 +1,7 @@
 ---
 id: operators-overview
 title: Overview
-slug: /doperators/overview
+slug: /operators/overview
 ---
 
 More details coming soon
