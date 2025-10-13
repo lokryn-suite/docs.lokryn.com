@@ -1,11 +1,8 @@
+/* Hero Banner */
 .heroBanner {
   padding: 6rem 0 4rem;
   text-align: center;
-  background: linear-gradient(
-    135deg,
-    var(--ifm-color-primary) 0%,
-    var(--ifm-color-primary-dark) 100%
-  );
+  background: var(--color-brand-dark);
   color: #fff;
 }
 
@@ -29,57 +26,135 @@
   gap: 1.5rem;
 }
 
-.features {
-  padding: 4rem 0;
-  background-color: var(--ifm-background-surface-color);
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.buttons .button--primary {
+  background: var(--color-brand-teal);
+  border: none;
 }
 
-.featureCard {
-  flex: 1 1 280px;
-  max-width: 320px;
-  background: var(--ifm-color-emphasis-0);
-  border: 1px solid var(--ifm-color-emphasis-200);
+.buttons .button--primary:hover {
+  background: #0d5f5a;
+}
+
+.buttons .button--secondary {
+  background: transparent;
+  border: 2px solid var(--color-brand-orange);
+  color: var(--color-brand-orange);
+}
+
+.buttons .button--secondary:hover {
+  background: var(--color-brand-orange);
+  color: #fff;
+}
+
+/* Quickstart Tiles */
+.tiles {
+  padding: 4rem 0;
+  background: #f9f9f9;
+}
+
+.tiles .col {
+  background: #fff;
+  border: 1px solid var(--color-brand-teal);
   border-radius: 12px;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.featureCard:hover {
+.tiles .col:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-.featureCard h3 {
+.tiles h3 {
+  color: var(--color-brand-orange);
+  margin-bottom: 0.75rem;
+}
+
+.tiles p {
+  color: var(--color-brand-dark);
   margin-bottom: 1rem;
-  font-size: 1.5rem;
-  color: var(--ifm-color-primary);
 }
 
-.featureCard p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--ifm-color-emphasis-700);
+.tiles a {
+  font-weight: 600;
+  color: var(--color-brand-teal);
+  text-decoration: none;
 }
 
-.about {
+.tiles a:hover {
+  color: var(--color-brand-orange);
+}
+
+/* Guides by Role */
+.guides {
   padding: 4rem 0;
+  background: #ffffff;
   text-align: center;
-  background: var(--ifm-color-emphasis-100);
 }
 
-.about h2 {
-  font-size: 2rem;
+.guides h2 {
+  margin-bottom: 2rem;
+  color: var(--color-brand-dark);
+}
+
+.guides .col {
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: background 0.25s ease;
+}
+
+.guides .col:hover {
+  background: rgba(197, 110, 42, 0.05);
+}
+
+.guides h4 {
+  color: var(--color-brand-orange);
+  margin-bottom: 0.5rem;
+}
+
+.guides p {
+  color: var(--color-brand-dark);
   margin-bottom: 1rem;
 }
 
-.about p {
-  max-width: 720px;
-  margin: 0 auto 2rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
+.guides a {
+  font-weight: 600;
+  color: var(--color-brand-teal);
+  text-decoration: none;
 }
+
+.guides a:hover {
+  color: var(--color-brand-orange);
+}
+
+/* Footer */
+.footer {
+  background: var(--color-brand-dark);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.footer a {
+  color: var(--color-brand-orange);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.getStartedButton {
+  background: var(--color-brand-orange);
+  border: 2px solid var(--color-brand-orange);
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.getStartedButton:hover {
+  background: #fff;
+  color: var(--color-brand-orange);
+  border-color: var(--color-brand-orange);
+}
+

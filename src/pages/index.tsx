@@ -1,27 +1,27 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+function DocsHero() {
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+          Lokryn Documentation
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">
+          Everything you need to build with Flight Recorder, Pipe Audit, Gatehouse, and Redeliver.
+        </p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/cli/quickstart">
-            Get Started with CLI
-          </Link>
-          <Link className="button button--secondary button--lg" to="/docs/core/quickstart">
-            Get Started with Core
+          <Link
+            className={clsx('button button--lg', styles.getStartedButton)}
+            to="/docs/control-room/quickstart"
+          >
+            Get Started
           </Link>
         </div>
       </div>
@@ -29,53 +29,87 @@ function HomepageHeader() {
   );
 }
 
-function HomepageFeatures() {
+
+function QuickstartTiles() {
   return (
-    <section className={styles.features}>
-      <div className={styles.featureCard}>
-        <h3>Profiles</h3>
-        <p>Connect to S3, GCS, Azure, or local data sources with simple TOML profiles.</p>
-      </div>
-      <div className={styles.featureCard}>
-        <h3>Contracts</h3>
-        <p>Define expectations for your data in TOML — file‑level, column‑level, and compound rules.</p>
-      </div>
-      <div className={styles.featureCard}>
-        <h3>Rules</h3>
-        <p>Apply validators like <code>not_null</code>, <code>range</code>, and <code>pattern</code> to enforce data quality.</p>
+    <section className={styles.tiles}>
+      <div className="container">
+        <div className="row">
+          <div className="col col--3">
+            <h3>Flight Recorder</h3>
+            <p>Compliance‑ready logs with no per‑GB surprises.</p>
+            <Link to="/docs/flight-recorder/intro">Read Docs →</Link>
+          </div>
+          <div className="col col--3">
+            <h3>Pipe Audit</h3>
+            <p>Trace every event through your pipeline with confidence.</p>
+            <Link to="/docs/pipe-audit/intro">Read Docs →</Link>
+          </div>
+          <div className="col col--3">
+            <h3>Gatehouse</h3>
+            <p>Transparent, developer‑friendly policy enforcement.</p>
+            <Link to="/docs/gatehouse/intro">Read Docs →</Link>
+          </div>
+          <div className="col col--3">
+            <h3>Redeliver</h3>
+            <p>Reliable retries and delivery guarantees, built‑in.</p>
+            <Link to="/docs/redeliver/intro">Read Docs →</Link>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-function AboutSection() {
+function GuidesByRole() {
   return (
-    <section className={styles.about}>
+    <section className={styles.guides}>
       <div className="container">
-        <h2>What is Lokryn?</h2>
-        <p>
-          Lokryn is a compliance‑ready data validation and audit framework. It ensures every dataset is checked
-          against explicit contracts, logged in a tamper‑evident chain, and quarantined if invalid — so your
-          downstream systems only see trusted data.
-        </p>
-        <Link className="button button--primary button--lg" to="/docs/pipe-audit">
-          Learn More in the Docs
-        </Link>
+        <h2>Guides by role</h2>
+        <div className="row">
+          <div className="col col--4">
+            <div className={styles.roleCard}>
+              <h4 className={styles.roleTitle}>Developers</h4>
+              <p className={styles.roleText}>SDKs, APIs, and integration examples.</p>
+              <Link className={styles.roleLink} to="/docs/developer/overview">
+                Start Coding →
+              </Link>
+            </div>
+          </div>
+          <div className="col col--4">
+            <div className={styles.roleCard}>
+              <h4 className={styles.roleTitle}>Compliance teams</h4>
+              <p className={styles.roleText}>Audit workflows, reporting, and controls.</p>
+              <Link className={styles.roleLink} to="/docs/compliance/overview">
+                Explore Compliance →
+              </Link>
+            </div>
+          </div>
+          <div className="col col--4">
+            <div className={styles.roleCard}>
+              <h4 className={styles.roleTitle}>Operators</h4>
+              <p className={styles.roleText}>Deployment, scaling, and observability.</p>
+              <Link className={styles.roleLink} to="/docs/operators/overview">
+                Ops Docs →
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
+
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title="Lokryn"
-      description="Lokryn is a data validation and audit framework with contracts, profiles, validators, and tamper‑evident logs.">
-      <HomepageHeader />
+      title="Lokryn Docs"
+      description="Documentation for Flight Recorder, Pipe Audit, Gatehouse, and Redeliver.">
+      <DocsHero />
       <main>
-        <HomepageFeatures />
-        <AboutSection />
+        <QuickstartTiles />
+        <GuidesByRole />
       </main>
     </Layout>
   );

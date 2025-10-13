@@ -1,30 +1,101 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: var(--color-brand-teal);   /* main accent */
+  --ifm-color-primary-dark: #0d5f5a;
+  --ifm-color-primary-darker: #0b4d4a;
+  --ifm-color-primary-light: #138983;
+  --ifm-color-primary-lighter: #19a39c;
+
+  --color-brand-orange: #c56e2a;
+  --color-brand-teal: #0f756f;
+  --color-brand-dark: #154a4d;
+
+  --ifm-font-family-base: 'Inter', system-ui, sans-serif;
+
+  --ifm-footer-background-color: var(--color-brand-dark);
+  --ifm-footer-link-color: var(--color-brand-orange);
+  --ifm-footer-link-hover-color: #ffffff;
+  --ifm-footer-title-color: #ffffff;
+  --ifm-footer-color: #ffffff; 
+
+    /* Docs background + text */
+  --ifm-background-color: #fdfcf9; /* off-white instead of pure white */
+  --ifm-font-color-base: var(--color-brand-dark);   
+  
+    /* Primary accent (links, highlights, buttons) */
+  --ifm-color-primary: var(--color-brand-teal);
+  --ifm-color-primary-dark: #0d5f5a;
+  --ifm-color-primary-light: #13938c;/* softer than pure black */
+
+    /* Sidebar */
+  --ifm-menu-color: var(--color-brand-dark);
+  --ifm-menu-color-active: var(--color-brand-orange);
+  --ifm-menu-color-background-active: rgba(197, 110, 42, 0.1);
+
+    /* Code blocks */
+  --ifm-code-font-size: 0.9rem;
+  --ifm-code-background: #f8f6f3
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+/* Sidebar headings */
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item > .menu__link {
+  font-weight: 600;
+  color: var(--color-brand-dark);
 }
+
+/* Active link */
+.menu__link--active {
+  color: var(--color-brand-orange) !important;
+  font-weight: 600;
+}
+
+/* Docs content wrapper */
+.theme-doc-markdown {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.theme-doc-markdown h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.theme-doc-markdown p {
+  margin-bottom: 1rem;
+}
+
+
+
+/* Inline code */
+code {
+  background: #f8f6f3;
+  color: var(--color-brand-dark);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}
+
+/* Code block titles (if using) */
+.theme-code-block {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  color: var(--color-brand-dark);
+  font-weight: 700;
+}
+
+.markdown p {
+  line-height: 1.65;
+  font-size: 1rem;
+  color: #333;
+}
+@media (min-width: 997px) {
+  .theme-doc-markdown {
+    border-radius: 12px;
+  }
+}
+
