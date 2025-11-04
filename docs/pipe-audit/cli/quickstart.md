@@ -2,7 +2,7 @@
 id: cli-quickstart
 title: Quickstart
 sidebar_position: 2
-slug: /cli/quickstart
+slug: /pipe-audit/cli/quickstart
 ---
 
 # CLI Quickstart
@@ -12,55 +12,70 @@ This guide walks you through creating a project, defining a contract, setting up
 
 ## 1. Initialize a Project
 
+```bash
 pipa init
+````
 
 This scaffolds:
 
-- contracts/ – contract definitions
-- logs/ – audit logs
-- profiles.toml – connection profiles
-- .env – environment variables
+  * `contracts/` – contract definitions
+  * `logs/` – audit logs
+  * `profiles.toml` – connection profiles
+  * `.env` – environment variables
 
-## 2. Define a Contract
+## 2\. Define a Contract
 
-Create a file in contracts/example.toml:
+Create a file in `contracts/example.toml`:
 
+```toml
 name = "example_contract"
 description = "Validate CSV headers"
 type = "csv"
 
 [checks]
 required_headers = ["id", "name", "email"]
+```
 
-## 3. Configure a Profile
+## 3\. Configure a Profile
 
-Edit profiles.toml:
+Edit `profiles.toml`:
 
+```toml
 [local]
 type = "filesystem"
 path = "./data"
+```
 
 Test the profile:
 
+```bash
 pipa profile test local
+```
 
-## 4. Use Environment Variables
+## 4\. Use Environment Variables
 
-Add secrets or connection details to .env:
+Add secrets or connection details to `.env`:
 
+```bash
 AWS_ACCESS_KEY_ID=your-key
 AWS_SECRET_ACCESS_KEY=your-secret
+```
 
 These values are automatically loaded when running commands.
 
-## 5. Run a Validation
+## 5\. Run a Validation
 
 Run a single contract:
 
+```bash
 pipa run --contract example_contract
+```
 
 Run all contracts:
 
+```bash
 pipa run --all
+```
 
 ✅ You now have a working Pipe Audit project with contracts, profiles, and environment configuration.
+

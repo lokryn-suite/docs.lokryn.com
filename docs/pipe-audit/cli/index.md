@@ -1,7 +1,7 @@
 ---
 id: cli-index
-title: Command‑Line Interface
-slug: /cli
+title: Command-Line Interface
+slug: /pipe-audit/cli
 sidebar_position: 0
 ---
 
@@ -11,10 +11,10 @@ The Lokryn CLI (`pipa`) is the primary way to interact with the audit engine fro
 It provides commands for initializing projects, running audits, inspecting contracts and profiles, and reviewing logs.
 
 ## 📖 What you'll find here
-- [Overview](/docs/cli/intro) — high‑level introduction to the CLI
-- [Quickstart](/docs/cli/quickstart) — install and run your first audit
-- [Commands](/docs/cli/commands) — detailed reference for each subcommand
+- [Overview](./intro) — high-level introduction to the CLI
+- [Quickstart](./quickstart) — install and run your first audit
+- [Command Reference](./command-reference) — detailed reference for each subcommand
 
 ## 💡 Tip
-If you’re new, start with the [Quickstart](/docs/cli/quickstart).  
-If you’re already familiar, jump straight into the [Commands reference](/docs/cli/commands).
+If you’re new, start with the [Quickstart](./quickstart).  
+If you’re already familiar, jump straight into the [Command Reference](./command-reference).

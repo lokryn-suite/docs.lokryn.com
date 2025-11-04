@@ -1,4 +1,4 @@
-import type {Config} from '@docusaurus/types';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -15,7 +15,11 @@ const config: Config = {
   projectName: 'docs.lokryn.com',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn', // <-- ADD IT HERE
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
@@ -24,15 +28,18 @@ const config: Config = {
 
   presets: [
     [
-      'classic',
-      {
+      '@docusaurus/preset-classic',
+      ({
         docs: {
-          sidebarPath: './sidebars.ts',
-          // editUrl: 'https://github.com/lokryn-suite/docs.lokryn.com/tree/main/',
+          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: 'docs',
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
         },
         blog: false,
-        theme: { customCss: './src/css/custom.css' },
-      } satisfies Preset.Options,
+        // ... other settings (blog, theme)
+      }),
     ],
   ],
 
@@ -43,7 +50,7 @@ const config: Config = {
       title: 'Lokryn',
       logo: { alt: 'Lokryn Logo', src: 'img/logo.png' },
       items: [
-        { type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs' },
+        { type: 'docSidebar', sidebarId: 'docsSidebar', position: 'left', label: 'Docs' },
         { href: 'https://github.com/lokryn-suite/docs.lokryn.com', label: 'GitHub', position: 'right' },
         { href: 'https://discord.gg/4JJT9qEfCA', label: 'Discord', position: 'right' },
       ],
