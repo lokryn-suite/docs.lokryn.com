@@ -22,8 +22,8 @@ While most users interact with Pipe Audit through the CLI, the same functionalit
   `engine::contracts::runner::run_contract_validation`
 
 - **Contract metadata helpers**:  
-  - [`list_contracts`](https://github.com/lokryn-suite/pipe-audit-core/blob/main/pipa-core/src/engine/contracts/meta.rs)  
-  - [`get_contract`](https.github.com/lokryn-suite/pipe-audit-core/blob/main/pipa-core/src/engine/contracts/meta.rs)  
+  - [`list_contracts`](https://github.com/lokryn-suite/pipe-audit-core/blob/main/pipa-core/src/engine/contracts/meta.rs)
+  - [`get_contract`](https://github.com/lokryn-suite/pipe-audit-core/blob/main/pipa-core/src/engine/contracts/meta.rs)
   - [`validate_contract`](https://github.com/lokryn-suite/pipe-audit-core/blob/main/pipa-core/src/engine/contracts/meta.rs)
 
 ## Internal vs Public Modules

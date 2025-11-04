@@ -36,4 +36,4 @@ Use the CLI when you want to:
 - Verify logs and system health without writing code
 - Share a reproducible, command-driven workflow with your team
 
-For programmatic integration or custom extensions, see the [Core Library Introduction](../core/core-intro).
+For programmatic integration or custom extensions, see the [Core Library Introduction](/docs/pipe-audit/core/intro).

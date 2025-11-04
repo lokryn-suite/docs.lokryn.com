@@ -17,5 +17,5 @@ It provides a complete "bell icon" notification system that handles:
 
 ## Next Steps
 
-* **[Getting Started](./getting-started)**: A step-by-step guide to set up and install the component.
-* **[API & Styling Reference](./reference)**: A full list of component props, style override keys, and conceptual details.
+* **[Getting Started](/docs/dispatch/getting-started)**: A step-by-step guide to set up and install the component.
+* **[API & Styling Reference](/docs/dispatch/reference)**: A full list of component props, style override keys, and conceptual details.

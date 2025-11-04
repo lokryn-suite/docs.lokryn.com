@@ -10,9 +10,9 @@ The Core library is organized into modular components.
 Each module encapsulates a specific responsibility and can be extended independently.
 
 ## 📖 What you'll find here
-- [Contract](./contract)
-- [Profile](./profile)
-- [Run](./run)
-- [Logs](./logs)
-- [Health](./health)
-- [Init](./init)
+- [Contract](/docs/pipe-audit/core/modules/contract)
+- [Profile](/docs/pipe-audit/core/modules/profile)
+- [Run](/docs/pipe-audit/core/modules/run)
+- [Logs](/docs/pipe-audit/core/modules/logs)
+- [Health](/docs/pipe-audit/core/modules/health)
+- [Init](/docs/pipe-audit/core/modules/init)

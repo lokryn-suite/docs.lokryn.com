@@ -14,7 +14,7 @@ This guide will walk you through signing up and finding your way around the Cont
 There are two ways to get an account:
 
 * **If you are the first user (Org Admin):**
-    1.  Navigate to the main [Lokryn sign-up page](https.lokryn.com/signup).
+    1.  Navigate to the main [Lokryn sign-up page](https://www.lokryn.com/signup).
     2.  Register your account and create a new organization. You will become the administrator for this org.
 * **If you are joining an existing organization:**
     1.  You must receive an **invitation email** from your organization's administrator.
