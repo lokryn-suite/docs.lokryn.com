@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdocs_lokryn_com=globalThis.webpackChunkdocs_lokryn_com||[]).push([[583],{6866:(o,c,r)=>{r.r(c),r.d(c,{default:()=>l});r(6540);var s=r(6347),t=r(4848);function l(){return(0,t.jsx)(s.rd,{to:"/docs/control-room/quickstart"})}}}]);
