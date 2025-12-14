@@ -50,7 +50,6 @@ Regular maintenance keeps DuckLake performant:
 - **Cleanup**: Remove old unreferenced files after compaction
 - **Snapshot Expiration**: Delete snapshots older than retention policy
 
-See [Maintenance Operations](./maintenance.md) for details.
 2. Rollup Process
 File: docs/ducklake-rollup.md
 ---
