@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   docsSidebar: [
@@ -25,9 +25,19 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Shopify Marketplace',
       items: [
-        { type: 'doc', id: 'shopify/affiliate-ping/affiliate-ping-index', label: 'Affiliate Ping' },
+        {
+          type: 'doc',
+          id: 'shopify/affiliate-ping/affiliate-ping-index',
+          label: 'Affiliate Ping'
+        },
+        {
+          type: 'doc',
+          id: 'shopify/affiliate-ping/affiliate-ping-faq',
+          label: 'FAQ'
+        },
       ],
     },
+
 
     // --- API Marketplace ---
     {
