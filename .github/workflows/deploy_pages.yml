@@ -1,37 +1,50 @@
-name: Deploy Docusaurus to GitHub Pages
+name: Deploy to Prod S3
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
-
-permissions:
-  contents: write 
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # required for OIDC
+      contents: read
+
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
+          cache: 'npm'
+          # If using a subdirectory, add the path here, e.g., 'frontend/package-lock.json'
+          cache-dependency-path: package-lock.json 
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build website
+      - name: Build site
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          publish_branch: gh-pages
+          role-to-assume: arn:aws:iam::767397687312:role/github-oidc
+          aws-region: us-east-2
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync build s3://lokryn-docs \
+            --delete \
+            --exact-timestamps
+
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E1XQGYN92KPMWV \
+            --paths "/*"
