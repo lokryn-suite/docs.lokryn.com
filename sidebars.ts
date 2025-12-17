@@ -17,6 +17,24 @@ const sidebars: SidebarsConfig = {
         { type: 'doc', id: 'aws/redeliver/redeliver-index', label: 'Redeliver' },
         { type: 'doc', id: 'aws/flight-recorder/flight-recorder-index', label: 'Flight Recorder' },
         { type: 'doc', id: 'aws/relay/relay-index', label: 'Relay' },
+        {
+          type: 'category',
+          label: 'Containers',
+          items: [
+            {
+              type: 'category',
+              label: 'DuckLake',
+              items: [
+                { type: 'doc', id: 'aws/containers/ducklake/ducklake-index', label: 'Overview' },
+                'aws/containers/ducklake/getting-started',
+                'aws/containers/ducklake/configuration',
+                'aws/containers/ducklake/connecting',
+                'aws/containers/ducklake/iam-permissions',
+                'aws/containers/ducklake/troubleshooting',
+              ],
+            },
+          ],
+        },
       ],
     },
 
