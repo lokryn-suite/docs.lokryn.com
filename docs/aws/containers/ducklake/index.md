@@ -19,7 +19,7 @@ DuckLake Container gives you lakehouse capabilities without the typical infrastr
 - **S3** stores your data as Parquet files
 - **DuckDB** provides the query engine
 
-You connect from any DuckDB client—Python, Go, DataGrip, or any SQL tool—and start querying.
+You connect from any DuckDB client—Python, Go, or any SQL tool—and start querying.
 
 ---
 

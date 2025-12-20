@@ -8,6 +8,24 @@ description: Connect to DuckLake from Python, Go, and SQL tools
 
 Once your DuckLake container is running, you can connect from any DuckDB client.
 
+## Quick Start Examples
+
+We provide ready-to-run Python examples in our GitHub repo:
+
+**[github.com/lokryn-suite/ducklake-examples](https://github.com/lokryn-suite/ducklake-examples)**
+
+```bash
+git clone https://github.com/lokryn-suite/ducklake-examples.git
+cd ducklake-examples
+cp .env.example .env
+# Edit .env with your connection details
+uv run python basic_example.py
+```
+
+The repo includes:
+- **basic_example.py** - Simple connection test, create table, insert, query
+- **large_dataset_example.py** - Load 1.4 million rows and run aggregations
+
 ## Connection String Format
 
 All connections use the DuckLake PostgreSQL connection string:
@@ -27,7 +45,7 @@ Replace:
 Install the DuckDB package:
 
 ```bash
-pip install duckdb
+pip install duckdb boto3 python-dotenv
 ```
 
 Connect and query:
@@ -38,8 +56,20 @@ import duckdb
 # Create a connection
 conn = duckdb.connect()
 
-# Install and load the ducklake extension
+# Install and load extensions
 conn.execute("INSTALL ducklake; LOAD ducklake;")
+conn.execute("INSTALL postgres; LOAD postgres;")
+conn.execute("INSTALL httpfs; LOAD httpfs;")
+
+# Create S3 credentials (required for data access)
+conn.execute("""
+    CREATE SECRET ducklake_s3 (
+        TYPE s3,
+        KEY_ID 'your-access-key',
+        SECRET 'your-secret-key',
+        REGION 'us-east-1'
+    );
+""")
 
 # Attach your lakehouse
 conn.execute("""
@@ -47,9 +77,11 @@ conn.execute("""
     port=5432 user=admin password=your-password dbname=lakehouse' AS lake
 """)
 
+conn.execute("USE lake;")
+
 # Create a table
 conn.execute("""
-    CREATE TABLE lake.customers (
+    CREATE TABLE customers (
         id INTEGER,
         name VARCHAR,
         email VARCHAR,
@@ -59,20 +91,18 @@ conn.execute("""
 
 # Insert data
 conn.execute("""
-    INSERT INTO lake.customers VALUES 
+    INSERT INTO customers VALUES 
     (1, 'Alice', 'alice@example.com', now()),
     (2, 'Bob', 'bob@example.com', now())
 """)
 
 # Query
-results = conn.execute("SELECT * FROM lake.customers").fetchall()
+results = conn.execute("SELECT * FROM customers").fetchall()
 for row in results:
     print(row)
-
-# Time travel - query a previous snapshot
-snapshots = conn.execute("SELECT * FROM ducklake_snapshots('lake')").fetchall()
-print(f"Available snapshots: {snapshots}")
 ```
+
+For a complete working example with AWS credential handling, see [basic_example.py](https://github.com/lokryn-suite/ducklake-examples/blob/main/basic_example.py).
 
 ## Go
 
@@ -102,7 +132,7 @@ func main() {
     }
     defer db.Close()
 
-    // Install and load extension
+    // Install and load extensions
     _, err = db.Exec("INSTALL ducklake; LOAD ducklake;")
     if err != nil {
         log.Fatal(err)
@@ -133,14 +163,6 @@ func main() {
 }
 ```
 
-## DataGrip / DBeaver
-
-DuckDB doesn't have a native JDBC driver for these tools, but you can:
-
-1. Use the DuckDB CLI to connect
-2. Use a Python script with your IDE
-3. Query via a Jupyter notebook
-
 ## DuckDB CLI
 
 If you have the DuckDB CLI installed:
@@ -154,10 +176,24 @@ Then in the CLI:
 ```sql
 INSTALL ducklake;
 LOAD ducklake;
+INSTALL postgres;
+LOAD postgres;
+INSTALL httpfs;
+LOAD httpfs;
+
+-- Create S3 secret
+CREATE SECRET ducklake_s3 (
+    TYPE s3,
+    KEY_ID 'your-access-key',
+    SECRET 'your-secret-key',
+    REGION 'us-east-1'
+);
 
 ATTACH 'ducklake:postgres:host=your-ecs-host.amazonaws.com port=5432 user=admin password=your-password dbname=lakehouse' AS lake;
 
-SELECT * FROM lake.customers;
+USE lake;
+
+SELECT * FROM customers;
 ```
 
 ## Jupyter Notebook
@@ -167,50 +203,44 @@ import duckdb
 
 conn = duckdb.connect()
 conn.execute("INSTALL ducklake; LOAD ducklake;")
+conn.execute("INSTALL postgres; LOAD postgres;")
+conn.execute("INSTALL httpfs; LOAD httpfs;")
+
+# Set up S3 credentials
+conn.execute("""
+    CREATE SECRET ducklake_s3 (
+        TYPE s3,
+        KEY_ID 'your-access-key',
+        SECRET 'your-secret-key',
+        REGION 'us-east-1'
+    );
+""")
+
 conn.execute("""
     ATTACH 'ducklake:postgres:host=your-ecs-host.amazonaws.com 
     port=5432 user=admin password=your-password dbname=lakehouse' AS lake
 """)
 
-# Use magic commands if using jupysql
-%load_ext sql
-%sql conn --alias lake
-
-# Or use pandas integration
+# Use pandas integration
 df = conn.execute("SELECT * FROM lake.customers").fetchdf()
 df.head()
 ```
 
-## Connection Pooling
+## Sample Data
 
-For applications with multiple concurrent queries, create a connection pool:
+We provide free sample datasets for testing:
+
+| Dataset | Rows | URL |
+|---------|------|-----|
+| people.csv | 1.4 million | https://sample.ondoriya.com/people.csv |
+
+Load directly into DuckLake:
 
 ```python
-from queue import Queue
-import duckdb
-
-class DuckLakePool:
-    def __init__(self, connection_string, size=5):
-        self.pool = Queue(maxsize=size)
-        for _ in range(size):
-            conn = duckdb.connect()
-            conn.execute("INSTALL ducklake; LOAD ducklake;")
-            conn.execute(f"ATTACH '{connection_string}' AS lake")
-            self.pool.put(conn)
-    
-    def get_connection(self):
-        return self.pool.get()
-    
-    def return_connection(self, conn):
-        self.pool.put(conn)
-
-# Usage
-pool = DuckLakePool("ducklake:postgres:host=... user=... password=... dbname=...")
-conn = pool.get_connection()
-try:
-    result = conn.execute("SELECT * FROM lake.customers").fetchall()
-finally:
-    pool.return_connection(conn)
+conn.execute("""
+    CREATE TABLE people AS 
+    SELECT * FROM read_csv_auto('https://sample.ondoriya.com/people.csv')
+""")
 ```
 
 ## Troubleshooting Connections
@@ -227,5 +257,9 @@ finally:
 **"Extension not found"**
 - Run `INSTALL ducklake` before `LOAD ducklake`
 - Ensure your DuckDB version is 1.0 or higher
+
+**"S3 access denied"**
+- Verify S3 credentials are created before attaching
+- Check the IAM permissions on your credentials
 
 See [Troubleshooting](/docs/aws/containers/ducklake/troubleshooting) for more solutions.

@@ -1,5 +1,6 @@
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import {themes as prismThemes} from 'prism-react-renderer';
 
 const config: Config = {
   title: 'Lokryn Docs',
@@ -71,7 +72,11 @@ const config: Config = {
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Lokryn.`,
-    }
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
   } satisfies Preset.ThemeConfig,
 };
 

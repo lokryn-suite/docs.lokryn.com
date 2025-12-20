@@ -6,100 +6,129 @@ description: Required IAM permissions for DuckLake Container
 
 # IAM Permissions
 
-DuckLake Container requires specific IAM permissions to read/write data to S3 and register with AWS Marketplace metering.
+DuckLake Container requires specific IAM permissions for logging, S3 data access, configuration, and AWS Marketplace metering.
 
-## Minimum Required Policy
+## Complete Working Policy
+
+This policy has been tested and verified to work with DuckLake Container on ECS/Fargate:
 
 ```json
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "S3DataAccess",
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:DeleteObject",
-        "s3:ListBucket"
-      ],
-      "Resource": [
-        "arn:aws:s3:::YOUR-BUCKET-NAME",
-        "arn:aws:s3:::YOUR-BUCKET-NAME/*"
-      ]
-    },
-    {
-      "Sid": "MarketplaceMetering",
-      "Effect": "Allow",
-      "Action": [
-        "aws-marketplace:RegisterUsage"
-      ],
-      "Resource": "*"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogStreams",
+                "secretsmanager:ListSecretVersionIds",
+                "secretsmanager:GetResourcePolicy",
+                "secretsmanager:BatchGetSecretValue",
+                "secretsmanager:ListSecrets"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:DescribeLogGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::lokryn-aws-marketplace-testing/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": [
+                "arn:aws:s3:::lokryn-aws-marketplace-testing"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:*:*:secret:secret:lokryn/ducklake/config*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:GetAuthorizationToken"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "aws-marketplace:RegisterUsage",
+                "aws-marketplace:MeterUsage"
+            ],
+            "Resource": "*"
+        }
+    ]
 }
 ```
 
 Replace `YOUR-BUCKET-NAME` with your actual S3 bucket name.
 
-## Optional: Secrets Manager Access
+## Permission Breakdown
 
-If using Secrets Manager for configuration, add:
+| Permission Group | Purpose |
+|-----------------|---------|
+| CloudWatch Logs | Container logging to CloudWatch |
+| S3 Object Access | Read/write Parquet data files |
+| S3 Bucket Access | List bucket contents, get bucket location |
+| Secrets Manager | Load configuration from Secrets Manager |
+| ECR | Pull container image from registry |
+| Marketplace | Hourly usage metering and billing |
 
-```json
-{
-  "Sid": "SecretsManagerAccess",
-  "Effect": "Allow",
-  "Action": [
-    "secretsmanager:GetSecretValue"
-  ],
-  "Resource": [
-    "arn:aws:secretsmanager:*:*:secret:lokryn/ducklake/*"
-  ]
-}
-```
 
-## Complete Policy Example
+## Trust Relationship
 
-Here's a complete policy combining all permissions:
+The IAM role must trust ECS tasks. Use this trust policy:
 
 ```json
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "S3DataAccess",
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:DeleteObject",
-        "s3:ListBucket"
-      ],
-      "Resource": [
-        "arn:aws:s3:::your-lakehouse-bucket",
-        "arn:aws:s3:::your-lakehouse-bucket/*"
-      ]
-    },
-    {
-      "Sid": "MarketplaceMetering",
-      "Effect": "Allow",
-      "Action": [
-        "aws-marketplace:RegisterUsage"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "SecretsManagerAccess",
-      "Effect": "Allow",
-      "Action": [
-        "secretsmanager:GetSecretValue"
-      ],
-      "Resource": [
-        "arn:aws:secretsmanager:*:*:secret:lokryn/ducklake/*"
-      ]
-    }
-  ]
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
 }
 ```
 
@@ -107,63 +136,15 @@ Here's a complete policy combining all permissions:
 
 ### Via AWS Console
 
-1. Go to IAM > Roles > Create Role
-2. Select "AWS Service" > "Elastic Container Service" > "Elastic Container Service Task"
-3. Attach the policy above (create as a custom policy)
-4. Name the role (e.g., `ducklake-task-role`)
-5. Use this role ARN in your ECS task definition's `taskRoleArn`
+1. Go to **IAM > Roles > Create Role**
+2. Select **AWS Service** > **Elastic Container Service** > **Elastic Container Service Task**
+3. Click **Next**, then **Create policy**
+4. Paste the complete policy JSON above
+5. Name the policy (e.g., `ducklake-task-policy`)
+6. Attach this policy to the role
+7. Name the role (e.g., `ducklake-task-role`)
+8. Use this role ARN in your ECS task definition's `taskRoleArn`
 
-### Via AWS CLI
-
-```bash
-# Create the trust policy
-cat > trust-policy.json << 'EOF'
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "ecs-tasks.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-EOF
-
-# Create the role
-aws iam create-role \
-  --role-name ducklake-task-role \
-  --assume-role-policy-document file://trust-policy.json
-
-# Create the permissions policy
-cat > ducklake-policy.json << 'EOF'
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "S3DataAccess",
-      "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject", "s3:ListBucket"],
-      "Resource": ["arn:aws:s3:::YOUR-BUCKET", "arn:aws:s3:::YOUR-BUCKET/*"]
-    },
-    {
-      "Sid": "MarketplaceMetering",
-      "Effect": "Allow",
-      "Action": ["aws-marketplace:RegisterUsage"],
-      "Resource": "*"
-    }
-  ]
-}
-EOF
-
-# Attach the policy
-aws iam put-role-policy \
-  --role-name ducklake-task-role \
-  --policy-name ducklake-permissions \
-  --policy-document file://ducklake-policy.json
-```
 
 ## S3 Bucket Configuration
 
@@ -173,30 +154,6 @@ Your S3 bucket should:
 2. **Be in the same region** as your ECS cluster for best performance
 3. **Have versioning enabled** (recommended for data safety)
 
-Example bucket policy (optional, for additional security):
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "DenyNonSecureTransport",
-      "Effect": "Deny",
-      "Principal": "*",
-      "Action": "s3:*",
-      "Resource": [
-        "arn:aws:s3:::your-bucket",
-        "arn:aws:s3:::your-bucket/*"
-      ],
-      "Condition": {
-        "Bool": {
-          "aws:SecureTransport": "false"
-        }
-      }
-    }
-  ]
-}
-```
 
 ## EKS with IRSA
 
@@ -220,11 +177,15 @@ metadata:
 After deployment, check the container logs for:
 
 ```
-✓ Successfully registered with AWS Marketplace
-✓ Connected to S3: s3://your-bucket/data/
+✓ Configuration loaded from Secrets Manager
+✓ AWS Marketplace registration successful
+✓ S3 write test passed: your-bucket/data/.keep
+✓ DuckLake catalog configured
 ```
 
 If you see permission errors, verify:
+
 1. The task role ARN is correctly specified in the task definition
 2. The policy is attached to the role
 3. The S3 bucket name in the policy matches your configuration
+4. The Secrets Manager secret name matches `lokryn/ducklake/config`
