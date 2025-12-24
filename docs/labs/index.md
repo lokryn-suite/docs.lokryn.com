@@ -22,3 +22,15 @@ Protocol Buffers schema for compliance-grade audit logging. Built for SOC2, HIPA
 - One schema, any language (Python, Go, TypeScript, etc.)
 
 [View on GitHub](https://github.com/lokryn-llc/compliance-log-schema) | [Buf Registry](https://buf.build/lokryn/compliance-log-schema)
+
+---
+
+### [Merkle Tree](./merkle-tree/)
+
+Merkle tree and hash chain utilities for immutable audit logs. Python library for creating tamper-evident chains with cryptographic proofs.
+
+- Hash chaining with SHA-256 for tamper-evident records
+- Merkle roots for efficient batch verification
+- Protocol-based design for flexible integration
+
+[View on GitHub](https://github.com/lokryn-llc/merkle-tree) | [PyPI](https://pypi.org/project/lokryn-merkle-tree/)

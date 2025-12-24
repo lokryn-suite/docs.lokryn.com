@@ -81,6 +81,15 @@ const sidebars: SidebarsConfig = {
             'labs/compliance-log-schema/usage-examples',
           ],
         },
+        {
+          type: 'category',
+          label: 'Merkle Tree',
+          items: [
+            { type: 'doc', id: 'labs/merkle-tree/merkle-tree-index', label: 'Overview' },
+            'labs/merkle-tree/api-reference',
+            'labs/merkle-tree/how-it-works',
+          ],
+        },
       ],
     },
   ],
