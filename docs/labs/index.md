@@ -13,7 +13,7 @@ A collection of internal tools, weekend hacks, and developer utilities. These pr
 
 ## Projects
 
-### [Compliance Log Schema](/compliance-log-schema)
+### [Compliance Log Schema](./compliance-log-schema/)
 
 Protocol Buffers schema for compliance-grade audit logging. Built for SOC2, HIPAA, and PCI environments. Works everywhere, optimized for AI/agent systems.
 
