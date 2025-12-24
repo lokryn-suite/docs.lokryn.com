@@ -15,7 +15,7 @@ const sidebars: SidebarsConfig = {
       label: 'AWS Marketplace',
       items: [
         { type: 'doc', id: 'aws/redeliver/redeliver-index', label: 'Redeliver' },
-        { type: 'doc', id: 'aws/flight-recorder/flight-recorder-index', label: 'Flight Recorder' },
+        { type: 'doc', id: 'aws/field-notes/field-notes-index', label: 'Field Notes' },
         { type: 'doc', id: 'aws/relay/relay-index', label: 'Relay' },
         {
           type: 'category',
@@ -63,6 +63,24 @@ const sidebars: SidebarsConfig = {
       label: 'API Marketplace',
       items: [
         { type: 'doc', id: 'api/logoqr-pro/logoqr-pro-index', label: 'LogoQR Pro' },
+      ],
+    },
+
+    // --- Labs ---
+    {
+      type: 'category',
+      label: 'Labs',
+      items: [
+        { type: 'doc', id: 'labs/labs-index', label: 'Lokryn Labs' },
+        {
+          type: 'category',
+          label: 'Compliance Log Schema',
+          items: [
+            { type: 'doc', id: 'labs/compliance-log-schema/compliance-log-schema-index', label: 'Overview' },
+            'labs/compliance-log-schema/schema-reference',
+            'labs/compliance-log-schema/usage-examples',
+          ],
+        },
       ],
     },
   ],
