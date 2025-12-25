@@ -90,6 +90,15 @@ const sidebars: SidebarsConfig = {
             'labs/merkle-tree/how-it-works',
           ],
         },
+        {
+          type: 'category',
+          label: 'MCP Log',
+          items: [
+            { type: 'doc', id: 'labs/mcp-log/mcp-log-index', label: 'Overview' },
+            'labs/mcp-log/sinks',
+            'labs/mcp-log/configuration',
+          ],
+        },
       ],
     },
   ],
