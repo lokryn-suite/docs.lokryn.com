@@ -1,11 +1,11 @@
 ---
-id: labs-index
-title: Lokryn Labs
-slug: /labs
+id: public-works-index
+title: Public Works
+slug: /public-works
 sidebar_position: 0
 ---
 
-# Lokryn Labs
+# Public Works
 
 A collection of internal tools, weekend hacks, and developer utilities. These projects are maintained but provided "as-is." No SLAs. Just raw utility.
 

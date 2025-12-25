@@ -23,8 +23,10 @@ A single, opinionated schema that covers:
 
 - **Traditional audit events** — Login, file access, config changes
 - **AI/agent-specific events** — Tool calls, model inference, autonomous decisions
+- **MCP protocol events** — Full coverage of Model Context Protocol operations
 - **Sensitivity classification** — Data handling policies built in
 - **Outcome tracking** — Success/failure analysis for compliance
+- **Standard mappings** — Export to OCSF, OTel GenAI, Elastic ECS, Splunk CIM, and more
 
 One format. Drop-in ready for any logging system. Built for compliance teams to actually use.
 

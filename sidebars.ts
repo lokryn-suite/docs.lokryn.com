@@ -66,37 +66,38 @@ const sidebars: SidebarsConfig = {
       ],
     },
 
-    // --- Labs ---
+    // --- Public Works ---
     {
       type: 'category',
-      label: 'Labs',
+      label: 'Public Works',
       items: [
-        { type: 'doc', id: 'labs/labs-index', label: 'Lokryn Labs' },
+        { type: 'doc', id: 'public-works/public-works-index', label: 'Public Works' },
         {
           type: 'category',
           label: 'Compliance Log Schema',
           items: [
-            { type: 'doc', id: 'labs/compliance-log-schema/compliance-log-schema-index', label: 'Overview' },
-            'labs/compliance-log-schema/schema-reference',
-            'labs/compliance-log-schema/usage-examples',
+            { type: 'doc', id: 'public-works/compliance-log-schema/compliance-log-schema-index', label: 'Overview' },
+            'public-works/compliance-log-schema/schema-reference',
+            'public-works/compliance-log-schema/usage-examples',
+            'public-works/compliance-log-schema/standard-mappings',
           ],
         },
         {
           type: 'category',
           label: 'Merkle Tree',
           items: [
-            { type: 'doc', id: 'labs/merkle-tree/merkle-tree-index', label: 'Overview' },
-            'labs/merkle-tree/api-reference',
-            'labs/merkle-tree/how-it-works',
+            { type: 'doc', id: 'public-works/merkle-tree/merkle-tree-index', label: 'Overview' },
+            'public-works/merkle-tree/api-reference',
+            'public-works/merkle-tree/how-it-works',
           ],
         },
         {
           type: 'category',
           label: 'MCP Log',
           items: [
-            { type: 'doc', id: 'labs/mcp-log/mcp-log-index', label: 'Overview' },
-            'labs/mcp-log/sinks',
-            'labs/mcp-log/configuration',
+            { type: 'doc', id: 'public-works/mcp-log/mcp-log-index', label: 'Overview' },
+            'public-works/mcp-log/sinks',
+            'public-works/mcp-log/configuration',
           ],
         },
       ],
