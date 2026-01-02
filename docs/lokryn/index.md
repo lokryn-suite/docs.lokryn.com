@@ -16,7 +16,7 @@ Built for scale, designed for auditors. Delivered through marketplaces for zero 
 
 Deploy resilient, compliance-ready components directly into your AWS environment.
 
-- **Redeliver**  
+- **Manifest**
   Resilient webhook ingestion and replay for AWS. Never lose a Stripe or Shopify event due to downtime.
 
 - **Flight Recorder**  

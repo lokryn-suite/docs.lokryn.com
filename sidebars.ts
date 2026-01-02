@@ -14,7 +14,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'AWS Marketplace',
       items: [
-        { type: 'doc', id: 'aws/redeliver/redeliver-index', label: 'Redeliver' },
+        { type: 'doc', id: 'aws/manifest/manifest-index', label: 'Manifest' },
         { type: 'doc', id: 'aws/field-notes/field-notes-index', label: 'Field Notes' },
         { type: 'doc', id: 'aws/relay/relay-index', label: 'Relay' },
         {
