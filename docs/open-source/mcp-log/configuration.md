@@ -45,7 +45,7 @@ logged = with_logging(
 
 ## Sensitivity Levels
 
-From the [Compliance Log Schema](/docs/compliance-log-schema):
+From the [Compliance Log Schema](/docs/open-source/compliance-log-schema):
 
 | Level | Description |
 |-------|-------------|

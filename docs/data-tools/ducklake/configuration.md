@@ -1,6 +1,8 @@
 ---
+id: ducklake-configuration
 sidebar_position: 3
 title: Configuration
+slug: /data-tools/ducklake/configuration
 description: Configure DuckLake Container with environment variables or Secrets Manager
 ---
 

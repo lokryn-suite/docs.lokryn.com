@@ -1,7 +1,7 @@
 ---
 id: merkle-tree-index
-title: Merkle Tree Overview
-slug: /merkle-tree
+title: Merkle Tree
+slug: /open-source/merkle-tree
 sidebar_position: 0
 ---
 
@@ -138,9 +138,17 @@ if not is_valid:
 
 ---
 
+## Used By
+
+This is the same library that powers [Field Notes](/docs/field-notes) tamper-evident storage. When you use lokryn-merkle-tree, you're using the same cryptographic primitives we use internally.
+
+---
+
 ## License
 
-AGPL-3.0 — Free to use, modify, and distribute. If you run a modified version as a network service, you must open source your changes.
+**AGPL-3.0** — Free to use, modify, and distribute. If you run a modified version as a network service, you must open source your changes.
+
+**Commercial License** — Need to use this without AGPL obligations? Contact [sales@lokryn.com](mailto:sales@lokryn.com).
 
 ---
 

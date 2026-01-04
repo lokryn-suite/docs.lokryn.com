@@ -10,33 +10,31 @@ Lokryn is the canonical format. All mappings are **export-only** (Lokryn → Tar
 
 ---
 
-## Target Standards
+## Supported Standards
 
-| Standard | Version | Owner | Primary Users |
-|----------|---------|-------|---------------|
-| OCSF | 1.3.0 | Linux Foundation | AWS Security Lake, Google Chronicle |
-| OTel GenAI | 1.37.0 | CNCF | Datadog, observability platforms |
-| Elastic ECS | 8.17 | Elastic | Elasticsearch, Kibana |
-| Splunk CIM | 6.1 | Splunk | Splunk Enterprise, Splunk Cloud |
-| Datadog | current | Datadog | Datadog Logs |
-| Microsoft ASIM | current | Microsoft | Microsoft Sentinel |
+| Standard | Type | Notes |
+|----------|------|-------|
+| OCSF | Open (Linux Foundation) | Primary target for security data lakes |
+| OTel GenAI | Open (CNCF) | Primary target for AI/ML observability |
+| SIEM CIM formats | Proprietary | Field-compatible with major SIEM platforms |
+| ECS formats | Proprietary | Field-compatible with common log schemas |
 
 ---
 
 ## Field Mapping Overview
 
-### Direct Passthrough Fields
+### Core Fields
 
-| Lokryn Field | OCSF | ECS | Splunk CIM | Datadog |
-|--------------|------|-----|------------|---------|
-| `severity` (1-8) | `severity_id` | `event.severity` | `severity` | `status` |
-| `time` | `time` | `@timestamp` | `_time` | `timestamp` |
-| `trace_id` | `correlation_uid` | `trace.id` | `trace_id` | `dd.trace_id` |
-| `span_id` | N/A | `span.id` | N/A | `dd.span_id` |
-| `message` | `message` | `message` | `signature` | `message` |
-| `actor_id` | `actor.user.uid` | `user.id` | `user` | `usr.id` |
-| `component` | `metadata.product.feature.name` | `service.name` | `app` | `service` |
-| `environment` | `metadata.product.deployment` | `service.environment` | `environment` | `env` |
+| Lokryn Field | OCSF | OTel GenAI |
+|--------------|------|------------|
+| `severity` (1-8) | `severity_id` | `event.severity` |
+| `time` | `time` | `@timestamp` |
+| `trace_id` | `correlation_uid` | `trace.id` |
+| `span_id` | N/A | `span.id` |
+| `message` | `message` | `message` |
+| `actor_id` | `actor.user.uid` | `user.id` |
+| `component` | `metadata.product.feature.name` | `service.name` |
+| `environment` | `metadata.product.deployment` | `service.environment` |
 
 ### Prefix Collapse Rules
 
@@ -118,61 +116,13 @@ Reference: [opentelemetry.io/docs/specs/semconv/gen-ai](https://opentelemetry.io
 
 ---
 
-## EventType → Elastic ECS Mapping
-
-Reference: [elastic.co/guide/en/ecs/current](https://www.elastic.co/guide/en/ecs/current/ecs-allowed-values-event-category.html)
-
-| EventType | event.category | event.type |
-|-----------|----------------|------------|
-| EVENT_LOGIN | `authentication` | `start` |
-| EVENT_LOGOUT | `authentication` | `end` |
-| EVENT_FILE_ACCESS | `file` | `access` |
-| EVENT_POLICY_CHANGE | `configuration` | `change` |
-| EVENT_PRIVILEGE_USE | `iam` | `admin` |
-| EVENT_CONFIG_CHANGE | `configuration` | `change` |
-| EVENT_DATA_EXPORT | `file` | `access` |
-| EVENT_NETWORK_CONNECTION | `network` | `connection` |
-| EVENT_PROCESS_START | `process` | `start` |
-| EVENT_PROCESS_STOP | `process` | `end` |
-| EVENT_USER_MANAGEMENT | `iam` | `user` |
-| EVENT_RESOURCE_ACCESS | `api` | `access` |
-| EVENT_TOOL_INVOCATION | `api` | `access` |
-| EVENT_MODEL_INFERENCE | `api` | `access` |
-| EVENT_AGENT_DECISION | `api` | `info` |
-| EVENT_GUARDRAIL_CHECK | `intrusion_detection` | `info` |
-| EVENT_MCP_* | `api` | `access` / `start` / `end` |
-| EVENT_TRANSPORT_* | `network` | `connection` / `start` / `end` |
-
----
-
-## EventType → Splunk CIM Mapping
-
-Reference: [docs.splunk.com/Documentation/CIM](https://docs.splunk.com/Documentation/CIM)
-
-| EventType | Data Model | Tags |
-|-----------|------------|------|
-| EVENT_LOGIN | Authentication | `authentication` |
-| EVENT_LOGOUT | Authentication | `authentication` |
-| EVENT_FILE_ACCESS | Data Access | `data`, `access` |
-| EVENT_POLICY_CHANGE | Change | `change`, `audit` |
-| EVENT_CONFIG_CHANGE | Change | `change`, `audit` |
-| EVENT_NETWORK_CONNECTION | Network Traffic | `network`, `communicate` |
-| EVENT_PROCESS_START | Endpoint | `process`, `report` |
-| EVENT_PROCESS_STOP | Endpoint | `process`, `report` |
-| EVENT_USER_MANAGEMENT | Change | `change`, `account` |
-| EVENT_TOOL_INVOCATION | Web | `web` |
-| EVENT_MODEL_INFERENCE | Web | `web` |
-| EVENT_MCP_* | Web | `web` |
-
----
-
 ## Notes
 
 ### OCSF AI/Agent Events
 OCSF doesn't have native AI event classes yet. We map to API Activity (6003) which is the closest fit. Lokryn is ahead of the standard here.
 
 ### MCP Events
-These are Lokryn-specific. No direct mapping exists in any standard. We map to closest equivalent (API Activity, Network Activity).
+These are Lokryn-specific. No direct mapping exists in any standard. We map to the closest equivalent (API Activity, Network Activity).
 
-### Datadog LLM Observability
-Supports OTel GenAI SemConv natively as of 2024. Export via OTel path.
+### Proprietary Format Export
+For SIEM and observability platforms with proprietary formats, export uses the OTel GenAI path where supported, or direct field mapping where documented.

@@ -1,7 +1,7 @@
 ---
 id: affiliate-ping-index
-title: Affiliate Ping Overview
-slug: /affiliate-ping
+title: Affiliate Ping
+slug: /shopify/affiliate-ping
 sidebar_position: 0
 ---
 

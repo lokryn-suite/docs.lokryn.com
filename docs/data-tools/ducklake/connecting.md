@@ -1,6 +1,8 @@
 ---
+id: ducklake-connecting
 sidebar_position: 4
 title: Connecting
+slug: /data-tools/ducklake/connecting
 description: Connect to DuckLake from Python, Go, and SQL tools
 ---
 
@@ -262,4 +264,4 @@ conn.execute("""
 - Verify S3 credentials are created before attaching
 - Check the IAM permissions on your credentials
 
-See [Troubleshooting](/docs/aws/containers/ducklake/troubleshooting) for more solutions.
+See [Troubleshooting](/docs/data-tools/ducklake/troubleshooting) for more solutions.

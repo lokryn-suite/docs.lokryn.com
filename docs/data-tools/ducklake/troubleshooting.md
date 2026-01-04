@@ -63,7 +63,7 @@ Attempting to load config from environment variables...
 **Error:** `Access Denied` when container tries to access S3
 
 **Solution:**
-1. Verify the task role has S3 permissions (see [IAM Permissions](/docs/aws/containers/ducklake/iam-permissions))
+1. Verify the task role has S3 permissions (see [IAM Permissions](/docs/data-tools/ducklake/iam-permissions))
 2. Check the bucket name in your policy matches exactly
 3. Ensure the bucket is in the same region or cross-region access is allowed
 4. Verify the S3 bucket URL format: `s3://bucket-name/path/`

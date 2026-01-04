@@ -1,6 +1,8 @@
 ---
+id: ducklake-getting-started
 sidebar_position: 2
 title: Getting Started
+slug: /data-tools/ducklake/getting-started
 description: Deploy DuckLake Container on AWS
 ---
 
@@ -30,7 +32,7 @@ aws s3 mb s3://your-company-lakehouse --region us-east-1
 
 ## Step 3: Create an IAM Role
 
-Create an IAM role for the ECS task with S3 and Marketplace permissions. See [IAM Permissions](/docs/aws/containers/ducklake/iam-permissions) for the full policy.
+Create an IAM role for the ECS task with S3 and Marketplace permissions. See [IAM Permissions](/docs/data-tools/ducklake/iam-permissions) for the full policy.
 
 Minimum permissions:
 - `s3:GetObject`, `s3:PutObject`, `s3:DeleteObject`, `s3:ListBucket` on your bucket
@@ -61,7 +63,7 @@ Key settings:
 - **Port mapping**: 5432 (PostgreSQL)
 - **Health check**: `pg_isready -U admin -d lakehouse`
 
-For a complete ECS task definition, see [Configuration](/docs/aws/containers/ducklake/configuration).
+For a complete ECS task definition, see [Configuration](/docs/data-tools/ducklake/configuration).
 
 ## Step 6: Connect and Query
 
@@ -89,6 +91,6 @@ print(conn.execute("SELECT * FROM lake.events").fetchall())
 
 ## Next Steps
 
-- [Configuration](/docs/aws/containers/ducklake/configuration) - All configuration options
-- [Connecting](/docs/aws/containers/ducklake/connecting) - Connect from different clients
-- [Troubleshooting](/docs/aws/containers/ducklake/troubleshooting) - Common issues and solutions
+- [Configuration](/docs/data-tools/ducklake/configuration) - All configuration options
+- [Connecting](/docs/data-tools/ducklake/connecting) - Connect from different clients
+- [Troubleshooting](/docs/data-tools/ducklake/troubleshooting) - Common issues and solutions
