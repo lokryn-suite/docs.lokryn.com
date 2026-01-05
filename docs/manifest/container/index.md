@@ -185,9 +185,11 @@ DynamoDB TTL handles automatic cleanup. Set `retention_days` per source:
 AWS Marketplace pricing:
 
 | Model | Price |
-|-------|-------|
-| Hourly | $X.XX/hour |
-| Annual | $X,XXX/year |
+|---------------------|-------|
+|Up to 1,000 callbacks|free|
+|Up to 10,000 callbacks|39$|
+|Up to 50,000 callbacks|89$|
+|Up to 250,000 callbacks|189$|
 
 Plus your AWS costs for DynamoDB, ElastiCache, and compute.
 
