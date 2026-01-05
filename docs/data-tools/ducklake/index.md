@@ -188,8 +188,8 @@ AWS Marketplace:
 
 | Model | Price |
 |-------|-------|
-| Hourly | $0.10/hour |
-| Annual | $700/year |
+| Hourly | $0.05/hour |
+| Annual | $350/year |
 
 Plus your AWS costs for S3 and compute.
 
