@@ -174,9 +174,11 @@ PARTITIONED BY (days(timestamp))
 AWS Marketplace pricing:
 
 | Model | Price |
-|-------|-------|
-| Hourly | $X.XX/hour |
-| Annual | $X,XXX/year |
+|----------|-------|
+|Up to 1 GB| Free |
+|Up to 15 GB| $39 |
+|Up to 75 GB| $89 |
+|Up to 250 GB| $189 |
 
 Plus your AWS costs for S3, compute, and data transfer.
 
