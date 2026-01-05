@@ -155,9 +155,11 @@ Configure S3 event notifications to trigger validation automatically:
 AWS Marketplace pricing:
 
 | Model | Price |
-|-------|-------|
-| Hourly | $X.XX/hour |
-| Annual | $X,XXX/year |
+|--------------------|-------|
+|Up to 50 validations|Free|
+|Up to 500 validations|39$|
+|Up to 2,500 validations|89$|
+|Up to 10,000 validations|189$|
 
 Plus your AWS costs for S3, DynamoDB, and compute.
 
