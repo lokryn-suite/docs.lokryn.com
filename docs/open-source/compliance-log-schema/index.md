@@ -188,7 +188,7 @@ See [Standard Mappings](/docs/open-source/compliance-log-schema/standard-mapping
 This schema is the foundation for:
 
 - **[lokryn-mcp-log](/docs/open-source/mcp-log)** — Auto-generates compliant logs from MCP clients
-- **[Field Notes](/docs/field-notes)** — Tamper-evident storage with merkle proofs
+- **Field Notes** — Tamper-evident storage with merkle proofs
 - **[lokryn-merkle-tree](/docs/open-source/merkle-tree)** — Hash chaining used by Field Notes
 
 ---

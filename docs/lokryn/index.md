@@ -1,92 +1,99 @@
 ---
 id: lokryn-index
-title: Lokryn Overview
+title: Lokryn
 slug: /lokryn
 sidebar_position: 0
 ---
 
 # Lokryn
 
-**Blue collar data tools for SMBs.**  
-Compliance infrastructure that doesn't require an enterprise budget. SOC2, HIPAA, and PCI readiness at fair prices.
+Modular infrastructure that junior devs drop in and LLMs compose — no overengineering, no plumbing sprints.
 
 ---
 
-## What We Build
+## The Problem We Solve
 
-| Category | Products | Customer | Deployment |
-|----------|----------|----------|------------|
-| **Core Products** | Field Notes, Manifest, Pipe Audit | SMB dev/ops teams | Container OR SaaS |
-| **Open Source** | compliance-log-schema, merkle-tree, mcp-log | Developers (DIY) | npm/PyPI/buf.build |
-| **Data Tools** | DuckLake | Data engineers | AWS Marketplace |
-| **Shopify Apps** | Affiliate Ping | Merchants | Shopify App Store |
+Teams burn sprint points on infrastructure plumbing. They either:
+
+1. **Overengineer** — "I need CDC" becomes Airflow + Debezium + Kafka + weeks of configuration
+2. **Underdeliver** — Skip proper logging/validation/retry logic because setup is too expensive
+3. **Overpay** — Enterprise tools with sales calls, contracts, and 10x markup
+
+We build the boring middle: production-ready modules that just work.
 
 ---
 
-## Core Products
+## Module Catalog
 
-Full-featured products available as self-hosted containers or managed SaaS.
+Drop-in containers. Deploy via AWS Marketplace. All include a **7-day free trial**.
 
-### [Field Notes](/docs/field-notes)
-Tamper-evident audit logging with cryptographic proofs. Every log entry is hash-chained and merkle-rooted for compliance-grade immutability.
+### Tier 1: Core Pipeline
 
-### [Manifest](/docs/manifest)
-Webhook retry with dead letter queue. Never lose a Stripe or Shopify event. Ordered replay prevents sequence scrambling.
+| Module | Description | Status |
+|--------|-------------|--------|
+| [`postgres-cdc`](/docs/modules/postgres-cdc) | Postgres → S3 Parquet + SNS/SQS events | **Live** |
+| [`ducklake`](/docs/modules/ducklake) | DuckDB lakehouse on S3 Tables | **Live** |
+| [`data-validator`](/docs/modules/data-validator) | Schema validation, quarantine bad data | Coming Soon |
+| [`file-drop`](/docs/modules/file-drop) | S3 landing zone with event triggers | Coming Soon |
+| [`snowflake-loader`](/docs/modules/snowflake-loader) | S3 → Snowflake sync | Coming Soon |
 
-### [Pipe Audit](/docs/pipe-audit)
-File validation with declarative TOML contracts. Define schemas, run validations, quarantine failures.
+### Tier 2: Fast Follows
 
-**Deployment options:**
-| Option | Description |
-|--------|-------------|
-| **Container** | AWS Marketplace. Your VPC, your data, your control. |
-| **SaaS** | Control Room. Managed service, usage-based pricing. |
+| Module | Description | Status |
+|--------|-------------|--------|
+| [`webhook-relay`](/docs/modules/webhook-relay) | Dead letter queue with ordered replay | Coming Soon |
+| [`audit-logger`](/docs/modules/audit-logger) | Tamper-evident compliance logs | Coming Soon |
+
+[View all modules →](/docs/modules)
 
 ---
 
 ## Open Source Libraries
 
-Production-grade libraries. These aren't toy projects—they're the actual components that power our products. Use them standalone, patch them together yourself, or let our products do the integration.
+Production-grade libraries. These power our modules — use them standalone or let our modules do the integration.
 
-### [Compliance Log Schema](/docs/open-source/compliance-log-schema)
-Protocol Buffers schema for audit logging. First-class support for AI/agent events.
-
-### [Merkle Tree](/docs/open-source/merkle-tree)
-Hash chaining and merkle proofs for tamper-evident records.
-
-### [MCP Log](/docs/open-source/mcp-log)
-Compliance-grade logging for Model Context Protocol clients.
+| Library | Registry | Purpose |
+|---------|----------|---------|
+| [compliance-log-schema](/docs/open-source/compliance-log-schema) | buf.build | Protobuf schema for audit logs |
+| [merkle-tree](/docs/open-source/merkle-tree) | PyPI | Hash chaining and merkle proofs |
+| [mcp-log](/docs/open-source/mcp-log) | PyPI | MCP interaction logging |
 
 **Licensing:** AGPL-3.0 with commercial licenses available.
 
 ---
 
-## Data Tools
-
-Easy button containers for data engineers. Weeks of legwork, done for you.
-
-### [DuckLake](/docs/data-tools/ducklake)
-S3 Tables + DuckDB lakehouse in a container. Query Iceberg tables with SQL. No configuration required.
-
-These are standalone utilities—not full products like Field Notes or Manifest. Single purpose, pre-configured, AWS Marketplace deployment.
-
----
-
 ## Shopify Apps
 
-Purpose-built apps for merchants. Same Lokryn DNA, different channel.
+Purpose-built apps for merchants.
 
-### [Affiliate Ping](/docs/shopify/affiliate-ping)
-Real-time Slack & email alerts when affiliate discount codes drive sales.
+| App | Description |
+|-----|-------------|
+| [Affiliate Ping](/docs/shopify/affiliate-ping) | Real-time alerts when affiliate codes drive sales |
 
 ---
 
-## Why Lokryn?
+## Design Principles
 
-- **Fair pricing for real companies** — Usage-based tiers that scale with you, not enterprise minimums
-- **Compliance without consultants** — SOC2, HIPAA, PCI patterns built in
-- **Open source foundation** — Inspect the code, contribute improvements, no vendor lock-in
-- **Your choice of deployment** — Self-host for control, or let us manage it
+| Principle | What It Means |
+|-----------|---------------|
+| **Drop-in** | One command to deploy. No PhD required. |
+| **No decisions** | Sensible defaults. Right levers exposed, complexity hidden. |
+| **Explicit failure** | Fail loudly if config is wrong. No silent defaults. |
+| **Composable** | Modules work alone or together. No forced bundling. |
+| **Your VPC** | Data stays in your cloud. We never see it. |
+
+---
+
+## Pricing
+
+All modules available on AWS Marketplace with usage-based pricing.
+
+| Model | Price |
+|-------|-------|
+| **7-day trial** | Free |
+| **Hourly** | $0.05–0.10/hr |
+
+No sales calls. No contracts. No enterprise minimums.
 
 ---
 

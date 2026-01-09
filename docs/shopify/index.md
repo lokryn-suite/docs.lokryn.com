@@ -55,5 +55,4 @@ Real-time notifications when affiliate and influencer discount codes drive sales
 
 ## Related
 
-- [Manifest](/docs/manifest) — Webhook reliability for any platform
 - [Lokryn Overview](/docs/lokryn) — Full product suite

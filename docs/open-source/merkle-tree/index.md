@@ -140,7 +140,7 @@ if not is_valid:
 
 ## Used By
 
-This is the same library that powers [Field Notes](/docs/field-notes) tamper-evident storage. When you use lokryn-merkle-tree, you're using the same cryptographic primitives we use internally.
+This is the same library that powers Field Notes tamper-evident storage. When you use lokryn-merkle-tree, you're using the same cryptographic primitives we use internally.
 
 ---
 

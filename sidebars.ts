@@ -9,65 +9,41 @@ const sidebars: SidebarsConfig = {
       label: 'Lokryn Overview',
     },
 
-    // --- Core Products ---
+    // --- Modules ---
     {
       type: 'category',
-      label: 'Field Notes',
+      label: 'Modules',
       items: [
-        { type: 'doc', id: 'field-notes/field-notes-index', label: 'Overview' },
-        { type: 'doc', id: 'field-notes/container/field-notes-container', label: 'Container (AWS)' },
-        { type: 'doc', id: 'field-notes/saas/field-notes-saas', label: 'SaaS' },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Manifest',
-      items: [
-        { type: 'doc', id: 'manifest/manifest-index', label: 'Overview' },
-        { type: 'doc', id: 'manifest/container/manifest-container', label: 'Container (AWS)' },
-        { type: 'doc', id: 'manifest/saas/manifest-saas', label: 'SaaS' },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Pipe Audit',
-      items: [
-        { type: 'doc', id: 'pipe-audit/pipe-audit-index', label: 'Overview' },
-        { type: 'doc', id: 'pipe-audit/container/pipe-audit-container', label: 'Container (AWS)' },
-        { type: 'doc', id: 'pipe-audit/saas/pipe-audit-saas', label: 'SaaS' },
+        { type: 'doc', id: 'modules/modules-index', label: 'Overview' },
         {
           type: 'category',
-          label: 'CLI',
+          label: 'postgres-cdc',
           items: [
-            { type: 'doc', id: 'pipe-audit/cli/cli-index', label: 'Overview' },
-            { type: 'doc', id: 'pipe-audit/cli/cli-quickstart', label: 'Quickstart' },
-            { type: 'doc', id: 'pipe-audit/cli/cli-command-reference', label: 'Command Reference' },
+            { type: 'doc', id: 'modules/postgres-cdc/postgres-cdc-index', label: 'Overview' },
+            { type: 'doc', id: 'modules/postgres-cdc/postgres-cdc-getting-started', label: 'Getting Started' },
+            { type: 'doc', id: 'modules/postgres-cdc/postgres-cdc-configuration', label: 'Configuration' },
+            { type: 'doc', id: 'modules/postgres-cdc/postgres-cdc-postgres-setup', label: 'PostgreSQL Setup' },
+            { type: 'doc', id: 'modules/postgres-cdc/postgres-cdc-querying', label: 'Querying Data' },
+            { type: 'doc', id: 'modules/postgres-cdc/postgres-cdc-events', label: 'Event Notifications' },
           ],
         },
         {
           type: 'category',
-          label: 'Core Library',
+          label: 'ducklake',
           items: [
-            { type: 'doc', id: 'pipe-audit/core/core-index', label: 'Overview' },
-            { type: 'doc', id: 'pipe-audit/core/core-quickstart', label: 'Quickstart' },
-            { type: 'doc', id: 'pipe-audit/core/core-contracts', label: 'Contracts' },
-            { type: 'doc', id: 'pipe-audit/core/core-profiles', label: 'Profiles' },
-            { type: 'doc', id: 'pipe-audit/core/core-rules', label: 'Rules' },
-            { type: 'doc', id: 'pipe-audit/core/core-logs-quarantine', label: 'Logs & Quarantine' },
+            { type: 'doc', id: 'modules/ducklake/ducklake-index', label: 'Overview' },
+            { type: 'doc', id: 'modules/ducklake/ducklake-getting-started', label: 'Getting Started' },
+            { type: 'doc', id: 'modules/ducklake/ducklake-configuration', label: 'Configuration' },
+            { type: 'doc', id: 'modules/ducklake/ducklake-connecting', label: 'Connecting' },
+            { type: 'doc', id: 'modules/ducklake/ducklake-iam-permissions', label: 'IAM Permissions' },
+            { type: 'doc', id: 'modules/ducklake/ducklake-troubleshooting', label: 'Troubleshooting' },
           ],
         },
-        {
-          type: 'category',
-          label: 'Contributing',
-          items: [
-            { type: 'doc', id: 'pipe-audit/contributing/contributing-index', label: 'Overview' },
-            { type: 'doc', id: 'pipe-audit/contributing/contributing-architecture', label: 'Architecture' },
-            { type: 'doc', id: 'pipe-audit/contributing/adding-rules', label: 'Adding Rules' },
-            { type: 'doc', id: 'pipe-audit/contributing/adding-connectors', label: 'Adding Connectors' },
-            { type: 'doc', id: 'pipe-audit/contributing/testing', label: 'Testing' },
-            { type: 'doc', id: 'pipe-audit/contributing/docs-onboarding', label: 'Docs Onboarding' },
-          ],
-        },
+        { type: 'doc', id: 'modules/data-validator/data-validator-index', label: 'data-validator (Coming Soon)' },
+        { type: 'doc', id: 'modules/file-drop/file-drop-index', label: 'file-drop (Coming Soon)' },
+        { type: 'doc', id: 'modules/snowflake-loader/snowflake-loader-index', label: 'snowflake-loader (Coming Soon)' },
+        { type: 'doc', id: 'modules/webhook-relay/webhook-relay-index', label: 'webhook-relay (Coming Soon)' },
+        { type: 'doc', id: 'modules/audit-logger/audit-logger-index', label: 'audit-logger (Coming Soon)' },
       ],
     },
 
@@ -79,7 +55,7 @@ const sidebars: SidebarsConfig = {
         { type: 'doc', id: 'open-source/open-source-index', label: 'Overview' },
         {
           type: 'category',
-          label: 'Compliance Log Schema',
+          label: 'compliance-log-schema',
           items: [
             { type: 'doc', id: 'open-source/compliance-log-schema/compliance-log-schema-index', label: 'Overview' },
             { type: 'doc', id: 'open-source/compliance-log-schema/schema-reference', label: 'Schema Reference' },
@@ -89,7 +65,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Merkle Tree',
+          label: 'merkle-tree',
           items: [
             { type: 'doc', id: 'open-source/merkle-tree/merkle-tree-index', label: 'Overview' },
             { type: 'doc', id: 'open-source/merkle-tree/api-reference', label: 'API Reference' },
@@ -98,35 +74,13 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'MCP Log',
+          label: 'mcp-log',
           items: [
             { type: 'doc', id: 'open-source/mcp-log/mcp-log-index', label: 'Overview' },
             { type: 'doc', id: 'open-source/mcp-log/sinks', label: 'Sinks' },
             { type: 'doc', id: 'open-source/mcp-log/configuration', label: 'Configuration' },
           ],
         },
-      ],
-    },
-
-    // --- Data Tools ---
-    {
-      type: 'category',
-      label: 'Data Tools',
-      items: [
-        { type: 'doc', id: 'data-tools/data-tools-index', label: 'Overview' },
-        {
-          type: 'category',
-          label: 'DuckLake',
-          items: [
-            { type: 'doc', id: 'data-tools/ducklake/ducklake-index', label: 'Overview' },
-            { type: 'doc', id: 'data-tools/ducklake/ducklake-getting-started', label: 'Getting Started' },
-            { type: 'doc', id: 'data-tools/ducklake/ducklake-configuration', label: 'Configuration' },
-            { type: 'doc', id: 'data-tools/ducklake/ducklake-connecting', label: 'Connecting' },
-            { type: 'doc', id: 'data-tools/ducklake/iam-permissions', label: 'IAM Permissions' },
-            { type: 'doc', id: 'data-tools/ducklake/troubleshooting', label: 'Troubleshooting' },
-          ],
-        },
-        { type: 'doc', id: 'aws/relay/relay-index', label: 'Relay (Coming Soon)' },
       ],
     },
 

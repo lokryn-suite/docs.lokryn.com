@@ -80,7 +80,7 @@ Sinks are async-first interfaces for where logs go:
 | `StdoutSink` | Print to stdout (development) |
 | `FileSink` | Append to local file |
 | `HttpSink` | POST to any HTTP endpoint |
-| `FieldNotesSink` | Send directly to [Field Notes](/docs/field-notes) |
+| `FieldNotesSink` | Send directly to Field Notes |
 
 ### Field Notes Integration
 
@@ -165,5 +165,4 @@ except SinkError as e:
 - [PyPI](https://pypi.org/project/lokryn-mcp-log/)
 - [Example Project](https://github.com/lokryn-llc/mcp-log-example)
 - [Compliance Log Schema](/docs/open-source/compliance-log-schema)
-- [Field Notes](/docs/field-notes)
 - [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)

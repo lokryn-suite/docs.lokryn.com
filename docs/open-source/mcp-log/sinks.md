@@ -73,7 +73,7 @@ sink = HTTPSink(
 
 ## FieldNotesSink
 
-Send logs directly to [Field Notes](/docs/field-notes) for tamper-evident storage and querying.
+Send logs directly to Field Notes for tamper-evident storage and querying.
 
 ```python
 from lokryn_mcp_log import FieldNotesSink
